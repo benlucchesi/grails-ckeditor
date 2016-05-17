@@ -13,14 +13,15 @@ buildscript {
     }
 }
 
-version "4.5.4.0"
+version "4.5.4.1"
 group "org.grails.plugins"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
 apply plugin:"org.grails.grails-plugin"
-apply plugin:"org.grails.grails-plugin-publish"
+//apply plugin:"org.grails.grails-plugin-publish"
 apply plugin:"org.grails.grails-gsp"
+apply plugin:"maven"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -40,14 +41,15 @@ dependencyManagement {
     applyMavenExclusions false
 }
 
+
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
-    compile "org.grails:grails-dependencies"
-    compile "org.grails:grails-web-boot"
+    compile "org.grails:grails-dependencies:3.1.6"
+    compile "org.grails:grails-web-boot:3.1.6"
     compile "org.grails.plugins:cache"
     compile "org.grails.plugins:scaffolding"
     console "org.grails:grails-console"
@@ -66,4 +68,4 @@ task wrapper(type: Wrapper) {
 
 apply from: "gradle/documentation.gradle"
 
-apply from: "gradle/publish.gradle"
+//apply from: "gradle/publish.gradle"
